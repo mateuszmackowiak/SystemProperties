@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" applicationDPI="160"
+			   
+			   contentCreationComplete="creaComp(event)">
+	
+	<s:layout>
+		<s:VerticalLayout horizontalAlign="center"/>
+	</s:layout>
+	
+	
+	<fx:Script>
+		<![CDATA[			
+			import spark.events.IndexChangeEvent;
+			
+			import pl.mateuszmackowiak.nativeANE.properties.SystemProperties;
+			
+			
+			protected function creaComp(event:Event):void
+			{
+				addListeners();
+				listAllPropertiesFromSystemProperties();
+				settingBadge();
+			}
+			
+			private function settingBadge():void
+			{
+				if(SystemProperties.isBadgeSupported()){
+					var b:int = SystemProperties.getInstance().badge;
+					badgeSpinnerList.selectedIndex = b;
+				}
+			}
+			
+			private function addListeners():void
+			{
+				goButton.addEventListener(MouseEvent.CLICK,onGoButtonChanged);
+				badgeSpinnerList.addEventListener(IndexChangeEvent.CHANGE,onBadgeSpinnerChanged);
+				SystemProperties.getInstance().addEventListener(ErrorEvent.ERROR,mess);
+			}
+			
+			public function listAllPropertiesFromSystemProperties():void
+			{
+				if(SystemProperties.isSupported){
+					var dictionary:Dictionary = SystemProperties.getInstance().getSystemProperites();
+					if(!dictionary){
+						mess("return null dictionary");
+						return;
+					}
+					
+					mess("--------------------");
+					for (var key:String in dictionary) 
+					{ 
+						var readingType:String = key; 
+						var readingValue:String = dictionary[key]; 
+						mess(readingType + "=" + readingValue); 
+					} 
+					mess("--------------------");
+					dictionary = null;
+				}else{
+					mess("SystemProperties is NOT supported on this platform!!");
+				}
+			}
+			
+			
+			public function mess(message:*):void
+			{
+				var s:String = String(message);
+				textArea.appendText(s+"\n");
+				trace(s+"\n");
+				try{
+					SystemProperties.getInstance().console(s);
+				}catch(error:Error){
+					trace(error);
+				}
+			}
+			
+			protected function onBadgeSpinnerChanged(event:IndexChangeEvent):void
+			{
+				SystemProperties.getInstance().badge = event.newIndex;
+				mess(" setting the badge:  "+SystemProperties.getInstance().badge);
+			}
+			
+			protected function onGoButtonChanged(event:MouseEvent):void
+			{
+				mess("Checking if can open URL "+textInput.text+" : "+SystemProperties.getInstance().canOpenUrl(textInput.text));
+			}
+			
+		]]>
+	</fx:Script>
+
+	
+	<s:SpinnerListContainer includeInLayout="{SystemProperties.isBadgeSupported()}" width="50" height="120">
+		<s:SpinnerList id="badgeSpinnerList" height="100%" width="100%" >
+			<s:dataProvider>
+				<s:NumericDataProvider minimum="0" maximum="99" stepSize="1"/>
+			</s:dataProvider>
+		</s:SpinnerList>
+	</s:SpinnerListContainer>
+	
+	
+	<s:HGroup width="100%" includeInLayout="{SystemProperties.isCanOpenUrlSupported()}">
+		<s:TextInput width="100%" id="textInput" prompt="url"/><s:Button width="50%" id="goButton" label="Check if can open url"/>	
+	</s:HGroup>
+	
+	<s:TextArea id="textArea" width="100%" height="100%" editable="false" />
+</s:Application>

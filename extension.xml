@@ -1,0 +1,46 @@
+<extension xmlns="http://ns.adobe.com/air/extension/3.1">
+	<id>pl.mateuszmackowiak.nativeANE.properties.SystemProperties</id>
+	<versionNumber>1</versionNumber>
+	<platforms>
+		<platform name="Android-ARM">
+			<applicationDeployment>
+			<nativeLibrary>libSystemProperties.jar</nativeLibrary>
+			<initializer>pl.mateuszmackowiak.nativeANE.properties.SystemPropertiesExtension</initializer>
+			<finalizer>pl.mateuszmackowiak.nativeANE.properties.SystemPropertiesExtension</finalizer>
+			</applicationDeployment>
+		</platform>
+		<platform name="iPhone-ARM">
+		<applicationDeployment>
+		<nativeLibrary>libSystemProperties.a</nativeLibrary>
+		<initializer>SystemPropertiesExtInitializer</initializer>
+		<finalizer>SystemPropertiesExtFinalizer</finalizer>
+		</applicationDeployment>
+		</platform>
+		<platform name="iPhone-x86">
+		<applicationDeployment>
+		<nativeLibrary>libSystemProperties.a</nativeLibrary>
+		<initializer>SystemPropertiesExtInitializer</initializer>
+		<finalizer>SystemPropertiesExtFinalizer</finalizer>
+		</applicationDeployment>
+		</platform>
+		<!--<platform name="Windows-x86">
+		<applicationDeployment>
+		<nativeLibrary>libSystemProperties.dll</nativeLibrary>
+		<initializer>SystemPropertiesExtInitializer</initializer>
+		<finalizer>SystemPropertiesExtFinalizer</finalizer>
+		</applicationDeployment>
+		</platform>
+		-->
+		<!--<platform name="MacOS-x86">
+		<applicationDeployment>
+		<nativeLibrary>libSystemProperties.framework</nativeLibrary>
+		<initializer>SystemPropertiesExtInitializer</initializer>
+		<finalizer>SystemPropertiesExtFinalizer</finalizer>
+		</applicationDeployment>
+		</platform>
+		-->
+		<platform name="default">
+		<applicationDeployment/>
+		</platform>
+	</platforms>
+</extension>
