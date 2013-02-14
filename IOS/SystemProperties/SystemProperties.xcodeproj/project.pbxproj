@@ -29,6 +29,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A199BB316CDA7E500953C37 /* SystemPropertiesTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SystemPropertiesTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A199BB916CDA7E500953C37 /* SytemPropertiesDummyApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SytemPropertiesDummyApp-Info.plist"; sourceTree = "<group>"; };
+		9A199BBB16CDA7E500953C37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9A199BBD16CDA7E500953C37 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9A199BBF16CDA7E500953C37 /* SytemPropertiesDummyApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SytemPropertiesDummyApp-Prefix.pch"; sourceTree = "<group>"; };
+		9A199BC016CDA7E500953C37 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9A199BC116CDA7E500953C37 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9A199BC316CDA7E500953C37 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9A199BC516CDA7E500953C37 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9A199BC716CDA7E500953C37 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9A6979C716B9B989004D5DD0 /* libSystemProperties.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSystemProperties.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6979CA16B9B989004D5DD0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9A6979CC16B9B989004D5DD0 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -81,12 +91,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A199BB716CDA7E500953C37 /* SytemPropertiesDummyApp */ = {
+			isa = PBXGroup;
+			children = (
+				9A199BC016CDA7E500953C37 /* AppDelegate.h */,
+				9A199BC116CDA7E500953C37 /* AppDelegate.m */,
+				9A199BB816CDA7E500953C37 /* Supporting Files */,
+			);
+			path = SytemPropertiesDummyApp;
+			sourceTree = "<group>";
+		};
+		9A199BB816CDA7E500953C37 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9A199BB916CDA7E500953C37 /* SytemPropertiesDummyApp-Info.plist */,
+				9A199BBA16CDA7E500953C37 /* InfoPlist.strings */,
+				9A199BBD16CDA7E500953C37 /* main.m */,
+				9A199BBF16CDA7E500953C37 /* SytemPropertiesDummyApp-Prefix.pch */,
+				9A199BC316CDA7E500953C37 /* Default.png */,
+				9A199BC516CDA7E500953C37 /* Default@2x.png */,
+				9A199BC716CDA7E500953C37 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		9A6979BE16B9B989004D5DD0 = {
 			isa = PBXGroup;
 			children = (
 				9A6979F816B9CF9D004D5DD0 /* UIDevice+MACAddress.h */,
 				9A6979F916B9CF9D004D5DD0 /* UIDevice+MACAddress.m */,
 				9A6979E816B9B989004D5DD0 /* SystemProperties */,
+				9A199BB716CDA7E500953C37 /* SytemPropertiesDummyApp */,
 				9A6979C916B9B989004D5DD0 /* Frameworks */,
 				9A6979C816B9B989004D5DD0 /* Products */,
 			);
@@ -96,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				9A6979C716B9B989004D5DD0 /* libSystemProperties.a */,
+				9A199BB316CDA7E500953C37 /* SystemPropertiesTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,6 +194,21 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		9A199BB216CDA7E500953C37 /* SytemPropertiesDummyApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A199BCB16CDA7E500953C37 /* Build configuration list for PBXNativeTarget "SytemPropertiesDummyApp" */;
+			buildPhases = (
+				9A199BCC16CDA7F500953C37 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SytemPropertiesDummyApp;
+			productName = SytemPropertiesDummyApp;
+			productReference = 9A199BB316CDA7E500953C37 /* SystemPropertiesTest.app */;
+			productType = "com.apple.product-type.application";
+		};
 		9A6979C616B9B989004D5DD0 /* SystemProperties */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A6979F116B9B98A004D5DD0 /* Build configuration list for PBXNativeTarget "SystemProperties" */;
@@ -198,11 +249,25 @@
 			projectRoot = "";
 			targets = (
 				9A6979C616B9B989004D5DD0 /* SystemProperties */,
+				9A199BB216CDA7E500953C37 /* SytemPropertiesDummyApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		9A199BCC16CDA7F500953C37 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# change to the proper directory\npushd ~/Documents/git/SystemProperties/TestApp/bin-debug\n\nif [ ${PLATFORM_NAME} = \"iphonesimulator\" ]\nthen\n\n# package th e IPA - skip if already built\n\"$AIR_SDK_PATH\"/bin/adt -package -target ipa-debug-interpreter-simulator -provisioning-profile /Users/mmmackowiak/Documents/Adobe\\ Flash\\ Builder\\ 4.6/CERTYFIKATY/nativealertdeveloper.mobileprovision -storetype pkcs12 -keystore /Users/mmmackowiak/Documents/Adobe\\ Flash\\ Builder\\ 4.6/CERTYFIKATY/iphone_dev.p12 \"$PRODUCT_NAME\".ipa \"$PRODUCT_NAME\"-app.xml \"$PRODUCT_NAME\".swf -extdir \"$PROJECT_DIR\"/../ -platformsdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk/ -C ../src/ icons -C ../src/ images\n\nelse\n\n# package the IPA - skip if already built\n\"$AIR_SDK_PATH\"/bin/adt -package -target ipa-debug-interpreter -provisioning-profile /Users/mmmackowiak/Documents/Adobe\\ Flash\\ Builder\\ 4.6/CERTYFIKATY/nativealertdeveloper.mobileprovision -storetype pkcs12 -keystore /Users/mmmackowiak/Documents/Adobe\\ Flash\\ Builder\\ 4.6/CERTYFIKATY/iphone_dev.p12  \"$PRODUCT_NAME\".ipa \"$PRODUCT_NAME\"-app.xml \"$PRODUCT_NAME\".swf -extdir \"$PROJECT_DIR\"/../ -platformsdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/ -C ../src/ icons -C ../src/ images\n\n\nfi\n\necho \"****** App packed *******\"\n#extract the IPA\ncp \"$PRODUCT_NAME\".ipa \"$PRODUCT_NAME\".ipa.zip\n\nunzip -o \"$PRODUCT_NAME\".ipa.zip\nrm \"$PRODUCT_NAME\".ipa.zip\n\n# copy the contents of the IPA to the location xcode wants\ncp -r Payload/\"$PRODUCT_NAME\".app/ * \"${CONFIGURATION_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/\"\ncp -r \"$PRODUCT_NAME\".app.dSYM \"${CONFIGURATION_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/\"\n\n# remove the following files and folders to avoid signature errors when installing the app\nrm \"${CONFIGURATION_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/_CodeSignature/CodeResources\"\nrmdir \"${CONFIGURATION_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/_CodeSignature\"\nrm \"${CONFIGURATION_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/CodeResources\"\nrm \"${CONFIGURATION_BUILD_DIR}/${CONTENTS_FOLDER_PATH}/PkgInfo\"\n\n# restore working directory\n#popd";
+		};
 		9AD62BC016BB25B700177B4A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,7 +308,64 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		9A199BBA16CDA7E500953C37 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A199BBB16CDA7E500953C37 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		9A199BC916CDA7E500953C37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SytemPropertiesDummyApp/SytemPropertiesDummyApp-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "SytemPropertiesDummyApp/SytemPropertiesDummyApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = SystemPropertiesTest;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9A199BCA16CDA7E500953C37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SytemPropertiesDummyApp/SytemPropertiesDummyApp-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "SytemPropertiesDummyApp/SytemPropertiesDummyApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = SystemPropertiesTest;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		9A6979EF16B9B98A004D5DD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -331,6 +453,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9A199BCB16CDA7E500953C37 /* Build configuration list for PBXNativeTarget "SytemPropertiesDummyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A199BC916CDA7E500953C37 /* Debug */,
+				9A199BCA16CDA7E500953C37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		9A6979C216B9B989004D5DD0 /* Build configuration list for PBXProject "SystemProperties" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

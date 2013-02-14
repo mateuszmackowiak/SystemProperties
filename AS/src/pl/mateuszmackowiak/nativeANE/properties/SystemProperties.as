@@ -260,10 +260,39 @@ package pl.mateuszmackowiak.nativeANE.properties
 				return false;
 		}
 		
-		
-		
-		
-		
+		/**
+		 * Is showing network spinning gear in status bar supported.
+		 * <b>ONLY IOS</b>
+		 */
+		public static function get isNetworkActivitySupported():Boolean
+		{
+			if(isIOS()){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		/**
+		 * Showing network spinning gear in status bar.
+		 * @default false
+		 */
+		public function setNetworkActivityIndicatorVisibility(visbile:Boolean):Boolean
+		{
+			if(isIOS()){
+				try{
+					const answer:Object = _context.call("networkIndicator",visbile);
+					if(answer is Boolean)
+						var ret:Boolean = answer as Boolean;
+					else trace(answer);
+					return ret;
+				}catch(e:Error){
+					trace("Error calling setNetworkActivityIndicatorVisibility method "+e.message,e.errorID);
+				}
+			}else{
+				trace("Network Activity Indicator is not supported on this platform");
+			}
+			return false;
+		}
 		
 		/**
 		 * @copy flash.external.ExtensionContext#dispose()

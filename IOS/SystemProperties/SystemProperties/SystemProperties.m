@@ -61,7 +61,7 @@ DEFINE_ANE_FUNCTION(getSystemProperty){
         
     }
     @catch (NSException *exception) {
-        
+        FREDispatchStatusEventAsync(context, (const uint8_t *)"error", (const uint8_t *)[[exception reason]UTF8String]);
     }
     return nil;
 }
@@ -100,7 +100,7 @@ DEFINE_ANE_FUNCTION(canOpenUrl){
         FRENewObjectFromBool([app canOpenURL:[NSURL URLWithString:nsStringUrl]], &retVal);
     }
     @catch (NSException *exception) {
-        //
+        FREDispatchStatusEventAsync(context, (const uint8_t *)"error", (const uint8_t *)[[exception reason]UTF8String]);
     }
     return retVal;
 }
@@ -120,7 +120,7 @@ DEFINE_ANE_FUNCTION(setBadge){
         [UIApplication sharedApplication].applicationIconBadgeNumber = value;
         
     }@catch (NSException *exception) {
-        //
+        FREDispatchStatusEventAsync(context, (const uint8_t *)"error", (const uint8_t *)[[exception reason]UTF8String]);
     }
     return nil;
 }
@@ -177,6 +177,33 @@ DEFINE_ANE_FUNCTION(IsSupported)
 }
 
 
+DEFINE_ANE_FUNCTION(networkIndicator){
+    @try {
+        UIApplication* app = [UIApplication sharedApplication];
+    
+        if(argc>0 && argv[0]){
+            uint32_t shownetworkActivity;
+            if(app && FREGetObjectAsBool(argv[0], &shownetworkActivity)==FRE_OK){
+                if(app.networkActivityIndicatorVisible != shownetworkActivity){
+                    app.networkActivityIndicatorVisible = shownetworkActivity;
+                }
+            }
+        }
+        FREObject retVal;
+        if(app && FRENewObjectFromBool(app.networkActivityIndicatorVisible, &retVal) == FRE_OK){
+            return retVal;
+        }else if(FRENewObjectFromBool(NO, &retVal) == FRE_OK){
+            return retVal;
+        }else{
+            return nil;
+        }
+    }
+    @catch (NSException *exception) {
+        FREDispatchStatusEventAsync(context, (const uint8_t *)"error", (const uint8_t *)[[exception reason]UTF8String]);
+    }
+    return nil;
+}
+
 #pragma mark - ANE setup
 
 
@@ -198,7 +225,7 @@ void SystemPropertiesContextInitializer(void* extData, const uint8_t* ctxType, F
     /* The following code describes the functions that are exposed by this native extension to the ActionScript code.
      * As a sample, the function isSupported is being provided.
      */
-    *numFunctionsToTest = 6;
+    *numFunctionsToTest = 7;
 
     FRENamedFunction* func = (FRENamedFunction*) malloc(sizeof(FRENamedFunction) * (*numFunctionsToTest));
     func[0].name = (const uint8_t*) "isSupported";
@@ -224,6 +251,10 @@ void SystemPropertiesContextInitializer(void* extData, const uint8_t* ctxType, F
     func[5].name = (const uint8_t*) "getSystemProperty";
     func[5].functionData = NULL;
     func[5].function = &getSystemProperty;
+    
+    func[6].name = (const uint8_t*) "networkIndicator";
+    func[6].functionData = NULL;
+    func[6].function = &networkIndicator;
     
     *functionsToSet = func;
 

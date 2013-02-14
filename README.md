@@ -11,6 +11,8 @@ If You like what I make pleas donate:
 SystemProperties class can provide some of the missing properties that You can’t get in adobe air.
 Also enables to check on IOS can a url be opened with other programs.
 
+setNetworkActivityIndicatorVisibility
+
 
 *Usage (badge):*
 
@@ -73,10 +75,17 @@ Available parameters:
 			}
 		
 		
-		if(SystemPropertie.isIOS()){
+		if(SystemProperties.isIOS()){
 			trace(SystemProperties.getInstance().canOpenUrl("http://maps.google.com/maps?ll=-37.812022,144.969277"));
 		}
 		
 		
+
+
+		if(SystemProperties.isNetworkActivitySupported){
+			SystemProperties.getInstance().setNetworkActivityIndicatorVisibility(true);
+		}
+
+
 		SystemProperties.getInstance().console("some text to console");
 	

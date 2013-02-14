@@ -36,6 +36,7 @@
 				goButton.addEventListener(MouseEvent.CLICK,onGoButtonChanged);
 				badgeSpinnerList.addEventListener(IndexChangeEvent.CHANGE,onBadgeSpinnerChanged);
 				SystemProperties.getInstance().addEventListener(ErrorEvent.ERROR,mess);
+				networkActivityButton.addEventListener(MouseEvent.CLICK,onNetworkActivityButtonClicked);
 			}
 			
 			public function listAllPropertiesFromSystemProperties():void
@@ -85,6 +86,19 @@
 				mess("Checking if can open URL "+textInput.text+" : "+SystemProperties.getInstance().canOpenUrl(textInput.text));
 			}
 			
+			private var _flag:Boolean = false;
+			protected function onNetworkActivityButtonClicked(event:MouseEvent):void
+			{
+				if(_flag==false){
+					_flag = true;
+					SystemProperties.getInstance().setNetworkActivityIndicatorVisibility(true);
+				}else{
+					_flag = false;
+					SystemProperties.getInstance().setNetworkActivityIndicatorVisibility(false);
+				}
+				
+			}
+			
 		]]>
 	</fx:Script>
 
@@ -96,6 +110,9 @@
 			</s:dataProvider>
 		</s:SpinnerList>
 	</s:SpinnerListContainer>
+	
+	<s:Button width="100%" label="network Activity " id="networkActivityButton" includeInLayout="{SystemProperties.isNetworkActivitySupported}"/>
+	
 	
 	
 	<s:HGroup width="100%" includeInLayout="{SystemProperties.isCanOpenUrlSupported()}">

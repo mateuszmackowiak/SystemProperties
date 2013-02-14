@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SytemPropertiesDummyApp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>9A199BB216CDA7E500953C37</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9A6979C616B9B989004D5DD0</key>
 		<dict>
 			<key>primary</key>
